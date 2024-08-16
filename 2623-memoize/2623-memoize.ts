@@ -4,7 +4,7 @@ function memoize(fn: Fn): Fn {
 
     const cache = new Map()
     
-    function memoizedFn(...args) {
+    return function(...args: number[]): number {
         const key = JSON.stringify(args)
         if (cache.has(key)) {
             return cache.get(key)
@@ -13,8 +13,6 @@ function memoize(fn: Fn): Fn {
         cache.set(key, result)
         return result
     }
-
-    return memoizedFn
 }
 
 
