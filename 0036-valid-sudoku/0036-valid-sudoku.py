@@ -1,6 +1,5 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        # 풀지 않아도 되고 검사만 하면 된다! 9*9
 
         # row 검사
         for row in board:
@@ -11,10 +10,7 @@ class Solution:
                 elif row[c] not in numSet:
                     numSet.add(row[c])
                 else:
-                    print(numSet)
-                    print('row 실패')
                     return False
-        print('row 통과')
 
         # col 검사
         for c in range(0, 9):
@@ -25,10 +21,7 @@ class Solution:
                 elif board[r][c] not in numSet:
                     numSet.add(board[r][c])
                 else:
-                    print(numSet)
-                    print('col 실패')
                     return False
-        print('col 통과')
 
         # 3x3 검사
         for square in range(0, 9):
@@ -42,8 +35,6 @@ class Solution:
                     elif board[row][col] not in numSet:
                         numSet.add(board[row][col])
                     else:
-                        print('3*3 실패')
                         return False
-        print('3*3 통과')
         
         return True
