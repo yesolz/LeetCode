@@ -13,14 +13,5 @@ class MinStack:
         return self.stack[-1]
 
     def getMin(self) -> int:
-        tmp = []
-        mini = self.stack[-1]
-
-        while len(self.stack):
-            mini = min(mini, self.stack[-1])
-            tmp.append(self.stack.pop())
-        
-        while len(tmp):
-            self.stack.append(tmp.pop())
-        
-        return mini
+        tmp = sorted(self.stack)
+        return tmp[0]
